@@ -24,8 +24,12 @@ public class Command implements IHM {
 				char sign = sc.next().charAt(0);
 				float res = Controller.execute(sign, a, b);
 				System.out.println(res);
-			} catch (InputMismatchException e) {
-				System.out.println("Mauvaise saisie");
+			} catch (Exception e) {
+				if (e instanceof InputMismatchException) {
+					System.out.println("Mauvaise saisie");
+				} else if (e instanceof ArithmeticException) {
+					System.out.println("Opération non supportée");
+				}
 			}
 			System.out.println("Saisir \"1\" pour arrêter le programme, autre chose pour faire un nouveau calcul");
 			stop = sc.nextInt();
