@@ -1,16 +1,13 @@
 package archioo;
 
 public class Division extends Operation {
-	
-	public Division(float left, float right) {
-		this.operator = '/';
-		this.left = left;
-		this.right = right;
-	}
 
 	@Override
-	public float calculate() throws ArithmeticException {
-		return this.left / this.right;
+	public float calculate(float left, float right) throws ArithmeticException {
+		if (right == 0) {
+			throw new ArithmeticException("Division par 0");
+		}
+		return left / right;
 	}
 	
 }

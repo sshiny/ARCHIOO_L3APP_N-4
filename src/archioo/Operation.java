@@ -2,9 +2,6 @@ package archioo;
 
 public abstract class Operation {
 	
-	protected char operator;
-	protected float left;
-	protected float right;
-	protected abstract float calculate();
+	protected abstract float calculate(float left, float right);
 	
 }
