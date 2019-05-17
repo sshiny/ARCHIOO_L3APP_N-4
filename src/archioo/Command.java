@@ -2,10 +2,13 @@ package archioo;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Command implements IHM {
 	
 	private Scanner sc;
+	private static final Logger LOGGER = Logger.getLogger(Exception.class.getName());
 	
 	public Command() {
 		sc = new Scanner(System.in);
@@ -27,8 +30,10 @@ public class Command implements IHM {
 			} catch (Exception e) {
 				if (e instanceof ArithmeticException || e instanceof UnsupportedOperationException) {
 					System.out.println(e.getMessage());
+					LOGGER.log(Level.INFO, e.getMessage());
 				} else if (e instanceof InputMismatchException) {
 					System.out.println("Mauvaise saisie");
+					LOGGER.log(Level.INFO, "Mauvaise saisie");
 				}
 			} finally {
 				sc = new Scanner(System.in);
