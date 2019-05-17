@@ -25,7 +25,7 @@ public class Command implements IHM {
 				float res = Calculator.execute(sign, a, b);
 				System.out.println(res);
 			} catch (Exception e) {
-				if (e instanceof ArithmeticException || e instanceof NullPointerException) {
+				if (e instanceof ArithmeticException || e instanceof UnsupportedOperationException) {
 					System.out.println(e.getMessage());
 				} else if (e instanceof InputMismatchException) {
 					System.out.println("Mauvaise saisie");
