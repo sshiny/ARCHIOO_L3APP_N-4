@@ -19,11 +19,11 @@ public class Command implements IHM {
 		String stop;
 		do {
 			try {
-				System.out.println("Saisir a");
+				System.out.println(MyProperties.readProperty("FIRST_DIGIT"));
 				float a = sc.nextFloat();
-				System.out.println("Saisir b");
+				System.out.println(MyProperties.readProperty("SECOND_DIGIT"));
 				float b = sc.nextFloat();
-				System.out.println("Saisir l'opérator");
+				System.out.println(MyProperties.readProperty("OPERATION"));
 				char sign = sc.next().charAt(0);
 				float res = Calculator.execute(sign, a, b);
 				System.out.println(res);
@@ -32,12 +32,12 @@ public class Command implements IHM {
 					System.out.println(e.getMessage());
 					LOGGER.log(Level.INFO, e.getMessage());
 				} else if (e instanceof InputMismatchException) {
-					System.out.println("Mauvaise saisie");
-					LOGGER.log(Level.INFO, "Mauvaise saisie");
+					System.out.println(MyProperties.readProperty("BAD_INPUT"));
+					LOGGER.log(Level.INFO, MyProperties.readProperty("BAD_INPUT"));
 				}
 			} finally {
 				sc = new Scanner(System.in);
-				System.out.println("Appuyer sur \"1\" pour arrêter le programme ou sur une autre touche pour faire un nouveau calcul");
+				System.out.println(MyProperties.readProperty("STOP"));
 				stop = sc.next();
 			}
 		} while (!stop.equals("1"));
