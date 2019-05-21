@@ -15,7 +15,7 @@ public class CalculatorConf {
 	
 	private static void initLanguages() throws IOException, NullPointerException {
 		MyProperties.init();
-		MyProperties.parse("fr");
+		MyProperties.parse();
 	}
 	
 	public static void init() throws IOException, NullPointerException {

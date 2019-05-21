@@ -2,6 +2,6 @@ package archioo;
 
 public interface IHM {
 
-	void lancer();
+	void lancer(int port);
 	
 }
